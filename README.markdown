@@ -11,17 +11,8 @@ root.
 First off, run the 'db:migrate' task.  There's a migration in the db directory
 that will create a s3_products table that's associated with products.
 
-In your project root (not Spree root), create config/initializers/s3.rb.  
-There's a sample in the config/initializers/s3.rb.  It supports the S3 gem
-convention of having environment variables: AMAZON_ACCESS_KEY_ID and 
-AMAZON_SECRET_ACCESS_KEY respectively.  So create it:
-
-		S3Options = {
-		  :access_key_id     => (ENV['AMAZON_ACCESS_KEY_ID'] || 'SECRET'),
-		  :secret_access_key => (ENV['AMAZON_SECRET_ACCESS_KEY'] || 'SECRET'),
-		  :product_bucket    => 'envycasts',
-		  :url_valid_for     => 15.minutes
-		}
+In your project root (not Spree root), create config/s3.yml.  
+There's a sample in the config/s3.yml.sample.
 
 The string you put in "product_bucket" is where the S3DownloadSet model will
 look for your s3 files.  The "url_valid_for" option only work when you create 
